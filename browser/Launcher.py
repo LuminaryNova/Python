@@ -15,7 +15,7 @@ class MainWindow(QWidget):
         self.setWindowTitle("BrowsEase")
         self.showMaximized()
         self.default_widgets()
-        self.setWindowIcon(QIcon('E:\Python\\browser\icon.png'))
+        self.setWindowIcon(QIcon('browser\icon.png'))
         self.show()
         self.suggestions_cache = {}
 
@@ -23,7 +23,7 @@ class MainWindow(QWidget):
     
     def default_widgets(self):    
         #background
-        bg_img = Image.open("E:\Python\\browser\\blackscreen.jpg")
+        bg_img = Image.open("browser\\blackscreen.jpg")
         background_img = QPixmap.fromImage(QImage(bg_img.tobytes(), bg_img.width, bg_img.height, bg_img.width * 3, QImage.Format_RGB888))
         palette = self.palette()
         palette.setBrush(QPalette.Window, QBrush(background_img))
@@ -56,7 +56,7 @@ class MainWindow(QWidget):
         
         self.home_button = QPushButton(self)
         self.home_button.clicked.connect(self.home)
-        self.home_icon = QIcon("E:\Python\\browser\home.png")
+        self.home_icon = QIcon("browser\home.png")
         self.home_button.setIcon(self.home_icon)
         self.home_button.setMinimumWidth(35)
         self.home_button.setMinimumHeight(28)
@@ -110,7 +110,7 @@ class MainWindow(QWidget):
         self.tab_widget.addTab(self.new_tab, "New Tab")
         
         image_label = QLabel(self.new_tab)
-        pixmap = QPixmap("E:\Python\\browser\\background.jpg")  
+        pixmap = QPixmap("browser\\background.jpg")  
         image_label.setPixmap(pixmap)
         
         self.gmail_shortcut_button = QPushButton("Gmail", self.new_tab)
@@ -130,7 +130,7 @@ class MainWindow(QWidget):
         self.drive_shortcut_button.clicked.connect(self.drive_shortcut)
         self.drive_shortcut_button.setGeometry(30,80,90,30)
         self.drive_shortcut_button.setStyleSheet("background-color: transparent; color: white; border: 3px solid white; border-radius: 5px; text-align: center; font-weight: bold;")
-        
+
         self.youtube_shortcut_button = QPushButton("YouTube", self.new_tab)
         self.youtube_shortcut_button.setFont(QFont("Segoe Print", 14))
         self.youtube_shortcut_button.clicked.connect(self.youtube_shortcut)
