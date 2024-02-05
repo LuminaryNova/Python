@@ -185,7 +185,6 @@ class MainWindow(QWidget):
         for i in reversed(range(current_tab.layout().count())):
             current_tab.layout().itemAt(i).widget().setParent(None)
         
-        # Check if the search text resembles a URL using the provided regular expression
         url_pattern = re.compile(r"^(https?://)?([a-zA-Z0-9.-]+)\.([a-zA-Z]{2,6})([/\w.-]*)*")
         
         if url_pattern.match(search_text):
@@ -201,7 +200,6 @@ class MainWindow(QWidget):
                 current_tab.layout().addWidget(web_view)
                 web_view.urlChanged.connect(self.update_search_bar)
         else:
-            # Perform a Google search
             google_search_url = QUrl("https://www.google.com/search?q=" + search_text)
             web_view = QWebEngineView(current_tab)
             web_view.setUrl(google_search_url)
