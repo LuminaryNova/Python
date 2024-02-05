@@ -4,9 +4,11 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import QUrl, Qt, QTimer, QStringListModel
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PIL import Image
-from bs4 import BeautifulSoup
 import re
 import requests
+import time
+import psutil
+import GPUtil
 
 
 class MainWindow(QWidget):
