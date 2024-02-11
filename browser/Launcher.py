@@ -161,7 +161,7 @@ class MainWindow(QWidget):
         pass
     
     def gmail_shortcut(self):
-        pass
+       pass
 
     def photos_shortcut(self):
         pass
