@@ -174,7 +174,7 @@ class MainWindow(QWidget):
     
     def search_result(self):
         self.suggestions_cache.clear()
-        search_text = text = self.search_bar.text() 
+        search_text = self.search_bar.text() 
         self.handle_search_result(search_text)
         
     def handle_search_result(self, search_text):
