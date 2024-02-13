@@ -83,17 +83,14 @@ class MainWindow(QWidget):
 
     def update_search_suggestions(self):
         search_text = self.search_bar.text()
-        lower_search_text = search_text.lower()
-
-    # Check if suggestions are already in the cache
-        if lower_search_text in self.suggestions_cache:
-            suggestions = self.suggestions_cache[lower_search_text]
+        if search_text in self.suggestions_cache:
+            suggestions = self.suggestions_cache[search_text]
         else:
-        # Fetch suggestions if not in cache
-            suggestions = self.fetch_google_suggestions(lower_search_text)
-            self.suggestions_cache[lower_search_text] = suggestions
+            suggestions = self.fetch_google_suggestions(search_text)
+            self.suggestions_cache[search_text] = suggestions
 
         self.completer.setModel(QStringListModel(suggestions))
+
 
     def fetch_google_suggestions(self, query):
         base_url = "http://suggestqueries.google.com/complete/search"
